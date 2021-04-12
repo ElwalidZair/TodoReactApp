@@ -6,7 +6,7 @@ function TodoList() {
     //declaring state variable which we will call todos
     const [todos, setTodos] = useState([]);
 
-    const addTodo = todo =>{       //add a task
+    const addTodo = todo =>{       //add a tasks
         if(!todo.text){
             return
         }
