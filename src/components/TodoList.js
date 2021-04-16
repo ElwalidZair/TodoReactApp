@@ -18,13 +18,17 @@ function TodoList() {
         console.log(todo);
     }
 
+    const removeTodo = (id) =>{
+        const removeArr = [...todos].filter(todo => todo.id !== id)
+        setTodos(removeArr); 
+    }
    
 
     return (
         <div>
             <h1>tasks to do</h1>
             <TodoForm onSubmit = {addTodo}/>
-            <Todo todos = {todos} ></Todo>
+            <Todo todos = {todos} removeTodo = {removeTodo}></Todo>
         </div>
     ) 
 }

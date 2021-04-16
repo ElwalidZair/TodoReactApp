@@ -5,13 +5,13 @@ import {AiFillEdit} from 'react-icons/ai';
 
 function Todo(props){
 
-    return props.todos.map((todo)=>(
-        <div className = "list">
-            <h3 className = "element">
+    return props.todos.map((todo,index)=>(
+        <div key = {index} className = "list">
+            <h3 key ={todo.id} className = "element">
                 {todo.text}
             </h3>
             <span className = "element">
-                <AiOutlineClose />
+                <AiOutlineClose onClick = {()=>{props.removeTodo(todo.id)}}/>
                 <AiFillEdit />
             </span>
         </div>
