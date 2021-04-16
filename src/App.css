@@ -3,15 +3,23 @@ body{
   background: rgb(75, 98, 226);
 }
 
+#nav{
+  background-color: rgb(255, 255, 255); 
+  position: relative;
+  bottom: 250px;
+  border-radius: 15px;
+}
+
+
 .todo-app{
   display: flex;
   flex-direction: column;
   justify-content: start;
   width: 520px;
-  min-height: 600px;
+  min-height: 500px;
   background: white;
   text-align: center;
-  margin: 50px auto;
+  margin: 110px auto;
   border-radius: 20px;
 }
 
@@ -31,9 +39,6 @@ h1{
   color:rgb(75, 98, 226);
 }
 
-.todo-input::placeholder{
-  color: rgb(0, 0, 0);
-}
 
 .todo-button{
   padding: 16px;
@@ -42,6 +47,21 @@ h1{
   cursor: pointer;
   outline: none;
   background: rgb(75, 98, 226);
+}
+
+.list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-color: rgb(75, 98, 226);
+  border-width: 2px;
+  border-style: solid;
+  margin: 12px;
+  border-radius: 10%;
+}
+
+.element{
+  padding: 12px;
 }
 
 

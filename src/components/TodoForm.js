@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import TodoList from './TodoList'
+
 function TodoForm(props) {
 
     //declaring state variable which we will call task
-    const [task, setTask] = useState('');
-
+    const [task, setTask] = useState("");
 
     const handleChange = e => {
         setTask(e.target.value);
@@ -14,20 +14,20 @@ function TodoForm(props) {
 
         e.preventDefault();
 
-        props.onSubmit({
+        props.onSubmit({ 
             id:Math.floor(Math.random() * 200),
             text:task
         });
 
         setTask('');
-        
     }
 
     return (
-        <form className = 'todo-form' onSubmit = {handleSubmit}>
+
+        <form className = 'todo-form' onSubmit={handleSubmit}>
             <input 
                 type = "text"
-                placeholder = "add a todo"
+                placeholder = "Todo"
                 value={task}
                 name="text"
                 className="todo-input"

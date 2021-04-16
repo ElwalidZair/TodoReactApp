@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import TodoForm from './TodoForm'
+import Todo from './Todo'
 
 function TodoList() {
 
@@ -17,13 +18,15 @@ function TodoList() {
         console.log(todo);
     }
 
+   
+
     return (
         <div>
             <h1>tasks to do</h1>
-            <TodoForm todos={todos} onSubmit = {addTodo}/>
-
+            <TodoForm onSubmit = {addTodo}/>
+            <Todo todos = {todos} ></Todo>
         </div>
-    )
+    ) 
 }
 
 export default TodoList
