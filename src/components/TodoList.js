@@ -20,7 +20,16 @@ function TodoList() {
 
     const removeTodo = (id) =>{
         const removeArr = [...todos].filter(todo => todo.id !== id)
+        alert("do you really want to delete it");
         setTodos(removeArr); 
+    }
+
+    const updateTodo = (todoId, newValue) =>{
+        if(!newValue.text){
+            return;
+        }
+
+        setTodos(prev => prev.map(item => (item.id === todoId ? newValue:item)))
     }
    
 
@@ -28,7 +37,7 @@ function TodoList() {
         <div>
             <h1>tasks to do</h1>
             <TodoForm onSubmit = {addTodo}/>
-            <Todo todos = {todos} removeTodo = {removeTodo}></Todo>
+            <Todo todos = {todos} removeTodo = {removeTodo} updateTodo = {updateTodo}></Todo>
         </div>
     ) 
 }
