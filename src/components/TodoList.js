@@ -9,9 +9,8 @@ function TodoList() {
 
     const addTodo = todo =>{       //add a tasks
         if(!todo.text){
-            return
+            return 
         }
-
         const newTodos = [todo, ...todos];
 
         setTodos(newTodos);
@@ -19,7 +18,7 @@ function TodoList() {
     }
 
     const removeTodo = (id) =>{
-        const removeArr = [...todos].filter(todo => todo.id !== id)
+        const removeArr = todos.filter(todo => todo.id !== id)
         alert("do you really want to delete it");
         setTodos(removeArr); 
     }

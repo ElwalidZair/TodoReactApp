@@ -21,9 +21,9 @@ function Todo(props){
         return <TodoForm edit={edit} onSubmit = {submitUpdate}></TodoForm>
     }
 
-    return props.todos.map((todo,index)=>(
-        <div key = {index} className = "list">
-            <h3 key ={todo.id} className = "element">
+    return props.todos.map(todo=>(
+        <div className = "list">
+            <h3 className = "element">
                 {todo.text}
             </h3>
             <span className = "element">
