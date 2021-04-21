@@ -1,21 +1,41 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TodoForm from './TodoForm'
 import Todo from './Todo'
+import axios from 'axios'
 
 function TodoList() {
 
-    //declaring state variable which we will call todos
     const [todos, setTodos] = useState([]);
+    const url = `http://localhost:8080/todos`;
 
-    const addTodo = todo =>{       //add a tasks
+    const addTodo = todo =>{     
         if(!todo.text){
             return 
         }
-        const newTodos = [todo, ...todos];
+        const newTodos = [todo,...todos]; 
 
         setTodos(newTodos);
-        console.log(todo);
+        console.log([todo,...todos]);
+
+        axios.post(url,{
+            id: todo.id,
+            task: todo.text
+        })
+        .then(res => {
+            console.log(res);
+        })
     }
+
+    useEffect(()=>{
+        axios.get(`http://localhost:8080/todos`)
+        .then(res => {
+            console.log(res);
+            
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    })
 
     const removeTodo = (id) =>{
         const removeArr = todos.filter(todo => todo.id !== id)
@@ -27,16 +47,14 @@ function TodoList() {
         if(!newValue.text){
             return;
         }
-
-        setTodos(prev => prev.map(item => item = newValue))
+        setTodos(prev => prev.map(item => (item.id === todoId ? newValue:item)))
     }
    
-
     return (
         <div>
             <h1>tasks to do</h1>
-            <TodoForm onSubmit = {addTodo}/>
-            <Todo todos = {todos} removeTodo = {removeTodo} updateTodo = {updateTodo}></Todo>
+            <TodoForm todos = {todos}  onSubmit = {addTodo}/>
+            <Todo todos = {todos}  removeTodo = {removeTodo} updateTodo = {updateTodo}></Todo>
         </div>
     ) 
 }

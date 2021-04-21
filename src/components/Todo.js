@@ -18,10 +18,10 @@ function Todo(props){
     }
 
     if(edit.id){
-        return <TodoForm edit={edit} onSubmit = {submitUpdate}></TodoForm>
+        return <TodoForm onSubmit = {submitUpdate}></TodoForm>
     }
 
-    return props.todos.map(todo=>(
+    return props.todos.map((todo)=>(
         <div className = "list">
             <h3 className = "element">
                 {todo.text}

@@ -1,25 +1,26 @@
 import React, {useState} from 'react'
-import TodoList from './TodoList'
+import {axios} from 'axios'
 
 function TodoForm(props) {
 
-    //declaring state variable which we will call task
-    const [task, setTask] = useState("");
+  
+    const [task, setTask] = useState('');
 
-    const handleChange = e => {
-        setTask(e.target.value);
+    const handleChange = e => {      
+        setTask(e.target.value);  
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = e => {     
 
-        e.preventDefault();
+        e.preventDefault();         
 
-        props.onSubmit({ 
-            id:Math.floor(Math.random() * 1000),
+        props.onSubmit({            
+            id:Math.floor(Math.random() * 1000),  
             text:task
         });
 
-        setTask('');
+
+        setTask('');            
     }
 
     return (
