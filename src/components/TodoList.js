@@ -26,21 +26,14 @@ function TodoList() {
         })
     }
 
-    useEffect(()=>{
-        axios.get(`http://localhost:8080/todos`)
-        .then(res => {
-            console.log(res);
-            
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    })
+ 
 
     const removeTodo = (id) =>{
-        const removeArr = todos.filter(todo => todo.id !== id)
-        alert("do you really want to delete it");
-        setTodos(removeArr); 
+        axios.delete(`${url}/${id}`)/////////I have to do something here
+        .then(res => {
+           const filtredArr = todos.filter(todo => todo.id !== id);
+                   setTodos(filtredArr);
+        })
     }
 
     const updateTodo = (todoId, newValue) =>{
