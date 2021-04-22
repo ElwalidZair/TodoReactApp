@@ -29,7 +29,7 @@ function TodoList() {
  
 
     const removeTodo = (id) =>{
-        axios.delete(`${url}/${id}`)/////////I have to do something here
+        axios.delete(`${url}/${id}`)
         .then(res => {
            const filtredArr = todos.filter(todo => todo.id !== id);
                    setTodos(filtredArr);
