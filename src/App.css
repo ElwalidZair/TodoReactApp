@@ -1,6 +1,7 @@
 
 body{
   background: rgb(75, 98, 226);
+  
 }
 
 #nav{
@@ -56,12 +57,12 @@ h1{
   border-color: rgb(75, 98, 226);
   border-width: 2px;
   border-style: solid;
-  margin: 12px;
   border-radius: 10%;
+  margin:20px;
 }
 
 .element{
-  padding: 12px;
+  padding: 1px;
 }
 
 
